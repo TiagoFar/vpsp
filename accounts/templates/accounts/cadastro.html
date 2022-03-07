@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<title>
+
+		{%block 'titulo' %} Cadastro {%endblock%}
+
+	</title>
+    <main>
+
+		<!-- Aqui vamos colocar o conteúdo principal da página -->
+		<h1 class="mt-3 mb-3">Cadastro:</h1>
+		<form method="POST" action="{% url 'cadastro' %}">
+			{% include 'parciais/_messages.html' %}
+			{% csrf_token %}
+			<label for="tx-nome">Nome completo:</label><br>
+			<input type="text" name="nome" id="tx-nome" size="50">
+			<br>
+
+			<label for="tx-email">E-mail:</label><br>
+			<input type="email" name="email" id="tx-email" size="50">
+			<br>
+
+			<label for="tx-usuario">Usuário:</label><br>
+			<input type="text" name="usuario" id="tx-usuario">
+			<br>
+
+			<label for="tx-senha">Senha:</label><br>
+			<input type="password" name="senha" id="tx-senha">
+			<br>
+
+			<label for="tx-repetir_senha">Repetir Senha:</label><br>
+			<input type="password" name="repetir_senha" id="tx-repetir_senha">
+			<br><br>
+
+			<label for="se-modalidade">Qual modalidade te interessa mais?</label><br>
+			<select name="modalidade" id="se-modalidade">
+				<option value="web">Dupla masculina</option>
+				<option value="poo">Dupla Feminina</option>
+                <option value="web">Dupla mista</option>
+				<option value="poo">Quarteto</option>
+			</select>
+			<br><br>
+
+			<fieldset>
+				<legend>Quais categorias você gostaria de participar?</legend>
+				<input type="checkbox" name="categorias" value="adulto" id="cb-adulto">
+				<label for="cb-adulto">Adulto</label><br>
+
+				<input type="checkbox" name="categorias" value="master" id="cb-master">
+				<label for="cb-master">Master</label><br>
+
+
+			</fieldset>
+			<br>
+
+			<fieldset>
+				<legend>Onde você conheceu o Beach Volley Champions?</legend>
+				<input type="radio" name="conheceu" value="amigos" id="ra-amigos" checked>
+				<label for="ra-amigos">Amigos</label><br>
+
+				<input type="radio" name="conheceu" value="google" id="ra-google">
+				<label for="ra-google">Google</label><br>
+
+				<input type="radio" name="conheceu" value="youtube" id="ra-youtube">
+				<label for="ra-youtube">Youtube</label><br>
+
+				<input type="radio" name="conheceu" value="instagram" id="ra-instagram">
+				<label for="ra-instagram">Instagram</label><br>
+
+                <input type="radio" name="conheceu" value="outros" id="ra-outros">
+				<label for="ra-outros">Outros</label><br>
+			</fieldset>
+			<br>
+
+			<input type="submit" value="Enviar" id="bt-enviar">
+			<input type="reset" value="Limpar">
+			<br>
+			<p id="msg-erros"></p>
+		</form>
+	</main>
+
+
+{% endblock %}

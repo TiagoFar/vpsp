@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'posts',
     'categorias',
     'comentarios',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,6 +150,12 @@ MESSAGE_TAGS = {
 }
 
 INSTALLED_APPS += ('django_summernote',)
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 try:
     from . local_settings import *
