@@ -1,2 +1,2 @@
-# vpsp
-vôlei de praia
+#  Blog de Vôlei de Praia 
+## Notícias, Campeonatos e Informaçõe sobre o esporte
